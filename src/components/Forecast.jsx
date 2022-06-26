@@ -19,7 +19,7 @@ function Forecast({ title, items }) {
               src={iconUrlFromCode(item.icon)}
               alt="weathericons"
             />
-            <p className="font-medium">{item.temp}</p>
+            <p className="font-medium">{`${item.temp.toFixed()}º`}</p>
           </div>
         ))}
       </div>
