@@ -11,6 +11,12 @@ function Inputs({setQuery, units, setUnits}) {
       setQuery({q: city})
   };
 
+  const handleSearchClickEnter = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchClick();
+    }
+  };
+
   const handleLocationClick = () => {
     if(navigator.geolocation){
       toast.info('Fetching users location');
@@ -39,6 +45,7 @@ function Inputs({setQuery, units, setUnits}) {
           placeholder="Search for city..."
           value={city}
           onChange={e => setCity(e.currentTarget.value)}
+          onKeyDown={handleSearchClickEnter}
         />
         <UilSearch size={25} className='text-white cursor-pointer transition ease-out hover:scale-125' onClick={handleSearchClick}/>
         <UilLocationPoint size={25} className='text-white cursor-pointer transition ease-out hover:scale-125' onClick={handleLocationClick}/>
